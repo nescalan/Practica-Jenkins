@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    environment {
+        KIRISUN = "Equipos de Radiocomunicación Kirisun"
+    }
+    
+    stages{
+        stage("Saludo_1"){
+            steps{
+                echo "Estoy funciona muy bien"
+            }
+        }
+        stage("Saludo_2"){
+            steps{
+                echo "Estoy funciona muy bien"
+                echo "No hay inconvenientes"
+            }
+        }
+        stage("Imprimir Variables de Entorno"){
+            steps{
+                echo "Voy a ejecutar un bash..."
+                sh "echo 'Esto es el comando de shell y voy a imprimir ${env.KIRISUN}' "
+            }
+        }
+        stage("Fin del Trabajo"){
+            steps{
+                echo "Ya llegamos al final del trabajo"
+            }
+        }
+    }
+}
